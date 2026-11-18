@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo2Video AI</title>
+<style>
+body {
+  background: #101018;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+  padding: 25px;
+}
+h1 { color: #a78bfa; }
+.card {
+  background: #20202d;
+  padding: 22px;
+  border-radius: 15px;
+}
+button {
+  background: #8055df;
+  color: white;
+  padding: 14px 25px;
+  border: 0;
+  border-radius: 10px;
+}
+</style>
+</head>
+<body>
+<h1>Photo2Video AI</h1>
+<p>Zamień zdjęcia w krótkie filmy AI</p>
+<div class="card">
+<h2>Dodaj zdjęcie</h2>
+<input type="file" id="photo" accept="image/*">
+<br><br>
+<button onclick="preview()">Pokaż zdjęcie</button>
+<div id="result"></div>
+</div>
+<script>
+function preview() {
+ const file = document.getElementById('photo').files[0];
+ if (!file) {
+ alert('Najpierw wybierz zdjęcie');
+ return;
+ }
+ const url = URL.createObjectURL(file);
+ document.getElementById('result').innerHTML =
+ '<img src="' + url + '" style="max-width:100%;margin-top:20px;border-radius:12px">';
+}
+</script>
+</body>
+</html>
